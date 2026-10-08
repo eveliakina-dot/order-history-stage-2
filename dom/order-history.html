@@ -1,0 +1,77 @@
+<!-- TechShop — Order History (/account/orders) -->
+<!-- Navigation and footer omitted — covered by NavigationComponent -->
+<main data-testid="orders-page">
+  <h1 data-testid="orders-heading">Order history</h1>
+  <p data-testid="orders-subheading">Showing 10 of 23 orders, newest first</p>
+
+  <!-- Filter bar — one form, applied with the Apply button -->
+  <form data-testid="orders-filter-bar" aria-label="Filter orders">
+    <label for="filter-status">Status</label>
+    <select id="filter-status" data-testid="filter-status" aria-label="Order status">
+      <option value="">All statuses</option>
+      <option value="pending">Pending</option>
+      <option value="confirmed">Confirmed</option>
+      <option value="processing">Processing</option>
+      <option value="shipped">Shipped</option>
+      <option value="delivered">Delivered</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
+
+    <label for="filter-date-from">From</label>
+    <input id="filter-date-from" data-testid="filter-date-from" type="date" aria-label="Orders from date"/>
+
+    <label for="filter-date-to">To</label>
+    <input id="filter-date-to" data-testid="filter-date-to" type="date" aria-label="Orders to date"/>
+
+    <!-- NOTE: no data-testid on this button -->
+    <button type="submit" class="btn btn-primary mt-2" aria-label="Apply filters">Apply</button>
+    <a href="/account/orders" data-testid="filter-clear">Clear filters</a>
+  </form>
+
+  <!-- Order list — each row follows identical structure -->
+  <ul data-testid="order-list" aria-label="Your orders">
+    <li data-testid="order-row" data-order-index="0">
+      <span data-testid="order-number-0">TS-240311-7731</span>
+      <time data-testid="order-date-0" datetime="2026-03-11">11 Mar 2026</time>
+      <span data-testid="order-status-0" class="badge badge-shipped">Shipped</span>
+      <span data-testid="order-total-0">£142.97</span>
+      <span data-testid="order-items-0">3 items</span>
+      <button data-testid="order-details-0"
+              aria-label="View details for order TS-240311-7731">View details</button>
+    </li>
+    <li data-testid="order-row" data-order-index="1">
+      <!-- Identical structure, index 1 -->
+      <span data-testid="order-number-1">TS-240302-7604</span>
+      <time data-testid="order-date-1" datetime="2026-03-02">2 Mar 2026</time>
+      <span data-testid="order-status-1" class="badge badge-delivered">Delivered</span>
+      <span data-testid="order-total-1">£58.50</span>
+      <span data-testid="order-items-1">1 item</span>
+      <button data-testid="order-details-1"
+              aria-label="View details for order TS-240302-7604">View details</button>
+    </li>
+    <li data-testid="order-row" data-order-index="2">
+      <!-- Identical structure, index 2 -->
+      <span data-testid="order-number-2">TS-240218-7418</span>
+      <time data-testid="order-date-2" datetime="2026-02-18">18 Feb 2026</time>
+      <span data-testid="order-status-2" class="badge badge-cancelled">Cancelled</span>
+      <span data-testid="order-total-2">£0.00</span>
+      <span data-testid="order-items-2">2 items</span>
+      <button data-testid="order-details-2"
+              aria-label="View details for order TS-240218-7418">View details</button>
+    </li>
+    <!-- … rows 3–9 omitted from this handout; identical structure, indices 3–9 -->
+  </ul>
+
+  <!-- Pagination — rendered only when the user has more than 10 orders -->
+  <nav data-testid="orders-pagination" aria-label="Order pages">
+    <button data-testid="pagination-prev" aria-label="Previous page" disabled>‹ Previous</button>
+    <span data-testid="pagination-page">Page 1 of 3</span>
+    <button data-testid="pagination-next" aria-label="Next page">Next ›</button>
+  </nav>
+
+  <!-- Empty state — rendered instead of the list when the user has no orders -->
+  <section data-testid="orders-empty-state" hidden>
+    <p data-testid="orders-empty-message">You haven't placed any orders yet.</p>
+    <a href="/catalogue" data-testid="orders-empty-catalogue-link">Browse the catalogue</a>
+  </section>
+</main>

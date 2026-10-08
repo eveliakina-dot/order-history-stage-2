@@ -1,0 +1,91 @@
+<!-- TechShop — Cart Page (/cart) -->
+<!-- Navigation and footer omitted — covered by NavigationComponent -->
+<main data-testid="cart-page">
+
+  <h1 data-testid="cart-heading">Your Cart (3 items)</h1>
+
+  <!-- Cart item list — each row follows identical structure -->
+  <ul data-testid="cart-item-list">
+
+    <li data-testid="cart-item" data-item-index="0">
+      <img data-testid="item-image-0"
+           src="/img/arj-001-thumb.jpg"
+           alt="Alpine Running Jacket — Slate Grey, M"/>
+      <div data-testid="item-details-0">
+        <p data-testid="item-name-0">Alpine Running Jacket</p>
+        <p data-testid="item-variant-0">Slate Grey / M</p>
+        <p data-testid="item-unit-price-0">£129.99</p>
+      </div>
+      <div data-testid="item-quantity-control-0">
+        <button data-testid="item-quantity-decrease-0"
+                aria-label="Decrease quantity for Alpine Running Jacket">−</button>
+        <input data-testid="item-quantity-input-0"
+               type="number" min="1" max="10" value="2" aria-label="Quantity"/>
+        <button data-testid="item-quantity-increase-0"
+                aria-label="Increase quantity for Alpine Running Jacket">+</button>
+      </div>
+      <p data-testid="item-line-total-0">£259.98</p>
+      <button data-testid="item-remove-0"
+              aria-label="Remove Alpine Running Jacket from cart">Remove</button>
+      <button data-testid="item-save-later-0"
+              aria-label="Save Alpine Running Jacket for later">Save for later</button>
+    </li>
+
+    <li data-testid="cart-item" data-item-index="1">
+      <!-- Identical structure, index 1 -->
+      <img data-testid="item-image-1" .../>
+      <div data-testid="item-details-1">
+        <p data-testid="item-name-1">Trail Running Socks (3-pack)</p>
+        <p data-testid="item-variant-1">Black / One Size</p>
+        <p data-testid="item-unit-price-1">£12.99</p>
+      </div>
+      <div data-testid="item-quantity-control-1">
+        <button data-testid="item-quantity-decrease-1" aria-label="...">−</button>
+        <input data-testid="item-quantity-input-1" value="1" .../>
+        <button data-testid="item-quantity-increase-1" aria-label="...">+</button>
+      </div>
+      <p data-testid="item-line-total-1">£12.99</p>
+      <button data-testid="item-remove-1" aria-label="Remove Trail Running Socks from cart">Remove</button>
+      <button data-testid="item-save-later-1" aria-label="Save Trail Running Socks for later">Save for later</button>
+    </li>
+
+    <!-- Additional items follow same pattern -->
+  </ul>
+
+  <!-- Order Summary sidebar -->
+  <aside data-testid="order-summary">
+    <h2 data-testid="order-summary-heading">Order Summary</h2>
+    <dl data-testid="cost-breakdown">
+      <dt>Subtotal</dt>
+      <dd data-testid="subtotal-value">£272.97</dd>
+      <dt>Shipping</dt>
+      <dd data-testid="shipping-value">Free</dd>
+    </dl>
+
+    <!-- Promo code widget -->
+    <div data-testid="promo-code-widget">
+      <label for="promo-input">Promo code</label>
+      <input id="promo-input"
+             data-testid="promo-code-input"
+             type="text"
+             placeholder="Enter code"/>
+      <button data-testid="promo-apply-button">Apply</button>
+      <p data-testid="promo-confirmation"
+         role="status" aria-live="polite"></p>
+      <p data-testid="promo-error"
+         role="alert" aria-live="polite"></p>
+    </div>
+
+    <dl>
+      <dt>Discount</dt>
+      <dd data-testid="discount-value">—</dd>
+      <dt><strong>Total</strong></dt>
+      <dd data-testid="order-total">£272.97</dd>
+    </dl>
+
+    <button data-testid="checkout-button">Proceed to Checkout</button>
+    <a data-testid="continue-shopping-link"
+       href="/products">Continue Shopping</a>
+  </aside>
+
+</main>
